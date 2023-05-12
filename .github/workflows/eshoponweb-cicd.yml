@@ -5,11 +5,11 @@ on: [push, workflow_dispatch]
 
 #Environment variables https://docs.github.com/en/actions/learn-github-actions/environment-variables
 env:
-  RESOURCE-GROUP: RGGHACTION
-  LOCATION: eastus
+  RESOURCE-GROUP: GR-GH-ACTIONIOS
+  LOCATION: eastus2
   TEMPLATE-FILE: .azure/bicep/webapp.bicep
   SUBSCRIPTION-ID: b0147b2a-fb52-406c-97e2-8e8990a44652
-  WEBAPP-NAME: storeblockweb
+  WEBAPP-NAME: webstoreaudit
 
 
 jobs:
@@ -72,7 +72,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENCIALS }}
+        creds: ${{ secrets.AZURE_CRED_SP_WEB }}
            
     # Deploy Azure WebApp using Bicep file
     - name: deploy
